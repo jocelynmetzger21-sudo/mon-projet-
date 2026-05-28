@@ -1,13 +1,13 @@
-# OCIAM ÉNERGIE — Site vitrine
+# Ociam Énergie — Site vitrine
 
-Site internet vitrine pour **OCIAM ÉNERGIE**, artisan électricien certifié IRVE
+Site internet vitrine pour **Ociam Énergie**, artisan électricien certifié IRVE
 spécialisé dans l'installation de bornes de recharge pour véhicules électriques
 chez les particuliers, en Bretagne (Finistère et alentours).
 
 ## Contenu
 
 - `index.html` — page unique avec sections : accueil, avantages, prestations, parrainage 50€, devis/contact
-- `styles.css` — design vert nature inspiré de la pub OCIAM ÉNERGIE
+- `styles.css` — design vert nature inspiré de la pub Ociam Énergie
 - Responsive (mobile, tablette, desktop)
 
 ## Informations entreprise
