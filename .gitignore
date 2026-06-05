@@ -1,0 +1,5 @@
+node_modules/
+render.js
+render-png.js
+package-lock.json
+package.json
