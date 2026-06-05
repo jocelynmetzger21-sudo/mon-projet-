@@ -6,30 +6,29 @@
 <title>La Gazette Foot de l'UT — Affiche A4</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
     :root{
-        /* Palette pro & dynamique — bleu Crédit Mutuel + accents énergiques */
-        --bleu:#0a4595;        /* bleu corporate */
-        --bleu-clair:#1d6fd0;
-        --vert:#16a34a;        /* terrain / fraîcheur */
-        --orange:#f59e0b;      /* énergie, fun maîtrisé */
-        --rouge:#e11d48;       /* accent ponctuel */
-        --gris:#475569;
-        --gris-clair:#eef2f7;
-        --encre:#0f1f3d;
+        --bleu:#0b3d7a;        /* bleu corporate profond */
+        --bleu-soft:#5b7aa8;
+        --or:#b08a3e;          /* accent doré sobre */
+        --encre:#1a2434;
+        --gris:#6b7686;
+        --trait:#dfe4ec;
+        --fond-doux:#f7f9fc;
         --blanc:#ffffff;
     }
 
     *{box-sizing:border-box;margin:0;padding:0;}
 
     body{
-        font-family:'Montserrat',Arial,sans-serif;
-        background:#dbe3ee;
+        font-family:'Inter',Arial,sans-serif;
+        background:#e7ebf1;
         color:var(--encre);
         display:flex;
         justify-content:center;
         padding:24px;
+        -webkit-font-smoothing:antialiased;
     }
 
     /* ---- Format A4 ---- */
@@ -37,156 +36,130 @@
         width:210mm;
         min-height:297mm;
         background:var(--blanc);
-        box-shadow:0 12px 40px rgba(0,0,0,.18);
+        box-shadow:0 12px 40px rgba(0,0,0,.16);
         display:flex;
         flex-direction:column;
-        overflow:hidden;
         position:relative;
+        padding:18mm 17mm 0;
     }
 
-    /* ====== EN-TÊTE / TITRE ====== */
-    .header{
-        position:relative;
-        background:linear-gradient(135deg,var(--bleu) 0%,var(--bleu-clair) 100%);
-        color:var(--blanc);
-        padding:16mm 14mm 13mm;
-        text-align:center;
-        overflow:hidden;
-    }
-    /* petites touches "ballons" en filigrane */
-    .header::before,
-    .header::after{
-        content:"";
-        position:absolute;
-        border-radius:50%;
-        border:3px solid rgba(255,255,255,.12);
-    }
-    .header::before{width:120px;height:120px;top:-40px;right:-30px;}
-    .header::after{width:80px;height:80px;bottom:-30px;left:20px;}
-
-    .kicker{
-        display:inline-block;
-        background:var(--orange);
-        color:var(--encre);
-        font-weight:800;
-        letter-spacing:.12em;
-        text-transform:uppercase;
-        font-size:11px;
-        padding:6px 14px;
-        border-radius:30px;
-        margin-bottom:10px;
-        position:relative;
-        z-index:1;
-    }
-    .header h1{
-        font-family:'Anton',sans-serif;
-        font-weight:400;
-        font-size:54px;
-        line-height:1;
-        letter-spacing:.5px;
-        text-transform:uppercase;
-        position:relative;
-        z-index:1;
-        text-shadow:0 3px 0 rgba(0,0,0,.12);
-    }
-    .header h1 .foot{
-        color:var(--orange);
-    }
-    .header .soustitre{
-        margin-top:10px;
-        font-size:14px;
-        font-weight:500;
-        opacity:.95;
-        position:relative;
-        z-index:1;
-    }
-    /* liseré tricouleur sportif sous le titre */
-    .liseré{
+    /* ====== EN-TÊTE ====== */
+    .bandeau{
         display:flex;
-        height:7px;
+        align-items:center;
+        justify-content:space-between;
+        font-size:10.5px;
+        letter-spacing:.18em;
+        text-transform:uppercase;
+        color:var(--gris);
+        font-weight:600;
+        padding-bottom:9px;
+        border-bottom:1px solid var(--trait);
     }
-    .liseré span{flex:1;}
-    .liseré .l1{background:var(--orange);}
-    .liseré .l2{background:var(--vert);}
-    .liseré .l3{background:var(--rouge);}
+    .bandeau .marque{color:var(--bleu);font-weight:700;}
 
-    /* ====== CORPS / RUBRIQUES ====== */
+    .titre{
+        text-align:center;
+        padding:13mm 0 9mm;
+        border-bottom:2.5px solid var(--bleu);
+    }
+    .titre .edition{
+        display:inline-block;
+        font-size:11px;
+        letter-spacing:.32em;
+        text-transform:uppercase;
+        color:var(--or);
+        font-weight:600;
+        margin-bottom:12px;
+    }
+    .titre h1{
+        font-family:'Playfair Display',Georgia,serif;
+        font-weight:800;
+        font-size:50px;
+        line-height:1.04;
+        color:var(--bleu);
+        letter-spacing:.5px;
+    }
+    .titre .accroche{
+        margin-top:13px;
+        font-size:13px;
+        color:var(--gris);
+        font-weight:500;
+        letter-spacing:.02em;
+    }
+
+    /* ====== RUBRIQUES ====== */
     .corps{
         flex:1;
-        padding:11mm 14mm 9mm;
+        padding-top:9mm;
         display:flex;
         flex-direction:column;
-        gap:7mm;
+        gap:6mm;
     }
 
     .rubrique{
-        border:1.5px solid var(--gris-clair);
-        border-left:6px solid var(--bleu);
-        border-radius:12px;
-        padding:11px 16px 14px;
-        background:linear-gradient(180deg,#fbfcfe 0%,#ffffff 60%);
+        padding-bottom:6mm;
+        border-bottom:1px solid var(--trait);
     }
-    /* couleur de liseré différente par rubrique = fun mais sobre */
-    .rubrique.r1{border-left-color:var(--bleu);}
-    .rubrique.r2{border-left-color:var(--vert);}
-    .rubrique.r3{border-left-color:var(--orange);}
-    .rubrique.r4{border-left-color:var(--rouge);}
-    .rubrique.r5{border-left-color:var(--bleu-clair);}
+    .rubrique:last-child{border-bottom:none;}
 
     .rubrique-tete{
         display:flex;
-        align-items:center;
-        gap:12px;
-        margin-bottom:9px;
+        align-items:baseline;
+        gap:14px;
+        margin-bottom:10px;
     }
     .numero{
         flex:none;
-        width:36px;height:36px;
-        border-radius:50%;
-        display:flex;align-items:center;justify-content:center;
-        font-family:'Anton',sans-serif;
-        font-size:20px;
-        color:var(--blanc);
-    }
-    .r1 .numero{background:var(--bleu);}
-    .r2 .numero{background:var(--vert);}
-    .r3 .numero{background:var(--orange);}
-    .r4 .numero{background:var(--rouge);}
-    .r5 .numero{background:var(--bleu-clair);}
-
-    .rubrique-tete h2{
-        font-size:19px;
+        font-family:'Playfair Display',serif;
         font-weight:800;
-        text-transform:uppercase;
-        letter-spacing:.3px;
-        color:var(--encre);
+        font-size:22px;
+        color:var(--or);
+        width:30px;
+        line-height:1;
     }
-    .rubrique-tete .emoji{font-size:20px;margin-left:auto;}
+    .rubrique-tete h2{
+        font-size:18px;
+        font-weight:700;
+        letter-spacing:.01em;
+        color:var(--encre);
+        text-transform:uppercase;
+    }
+    .rubrique-tete h2 .filet{
+        display:block;
+        width:42px;
+        height:2px;
+        background:var(--bleu);
+        margin-top:7px;
+    }
 
-    /* zone d'écriture : lignes pointillées pour laisser de la place */
+    /* zone d'écriture sobre */
     .zone{
-        min-height:24mm;
+        margin-left:44px;
+        min-height:23mm;
         background-image:repeating-linear-gradient(
             to bottom,
             transparent 0,
-            transparent 9mm,
-            #c9d4e3 9mm,
-            #c9d4e3 calc(9mm + 1px)
+            transparent 8.5mm,
+            var(--trait) 8.5mm,
+            var(--trait) calc(8.5mm + 1px)
         );
     }
-    .rubrique.compact .zone{min-height:18mm;}
+    .rubrique.compact .zone{min-height:17mm;}
 
-    /* ====== PIED DE PAGE ====== */
+    /* ====== PIED ====== */
     .footer{
-        background:var(--encre);
-        color:var(--blanc);
-        text-align:center;
-        padding:10px 14mm;
-        font-size:12px;
-        font-weight:600;
+        margin-top:auto;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        font-size:10.5px;
+        color:var(--gris);
         letter-spacing:.04em;
+        padding:9px 0 14mm;
+        border-top:1px solid var(--trait);
     }
-    .footer span{color:var(--orange);}
+    .footer .signature{color:var(--bleu);font-weight:600;}
 
     /* ====== IMPRESSION ====== */
     @page{size:A4;margin:0;}
@@ -196,93 +169,82 @@
         .no-print{display:none!important;}
     }
 
-    /* barre d'aide (écran uniquement) */
     .aide{
-        max-width:210mm;
-        margin:0 auto 14px;
-        background:#0f1f3d;
-        color:#dbe3ee;
-        border-radius:10px;
-        padding:12px 16px;
-        font-size:13px;
-        line-height:1.5;
+        max-width:210mm;margin:0 auto 14px;
+        background:var(--bleu);color:#eaf0f8;border-radius:8px;
+        padding:12px 16px;font-size:12.5px;line-height:1.5;
     }
-    .aide b{color:var(--orange);}
+    .aide b{color:#f0d79a;}
 </style>
 </head>
 <body>
 <div class="no-print" style="width:210mm;">
     <div class="aide">
-        🖨️ <b>Pour obtenir l'affiche :</b> ouvre ce fichier dans un navigateur puis
-        <b>Imprimer&nbsp;→ Destination : Enregistrer en PDF</b> (format A4, marges « aucune »,
-        cocher « Graphiques d'arrière-plan »). Tu peux écrire à la main sous chaque rubrique,
-        ou ajouter ton texte dans le code avant d'imprimer.
+        🖨️ <b>Pour l'affiche :</b> ouvre ce fichier dans un navigateur puis
+        <b>Imprimer → Enregistrer en PDF</b> (A4, marges « aucune », cocher « Graphiques d'arrière-plan »).
     </div>
 </div>
 
 <div class="page">
 
-    <!-- TITRE PRINCIPAL -->
-    <header class="header">
-        <span class="kicker">⚽ Édition spéciale Coupe du Monde</span>
-        <h1>La Gazette <span class="foot">Foot</span> de l'UT</h1>
-        <p class="soustitre">Toute l'actu du foot &amp; de la relation client — Crédit Mutuel de Bretagne</p>
-    </header>
-    <div class="liseré"><span class="l1"></span><span class="l2"></span><span class="l3"></span></div>
+    <div class="bandeau">
+        <span class="marque">Crédit Mutuel de Bretagne</span>
+        <span>Journal interne · Unité Technique</span>
+    </div>
 
-    <!-- RUBRIQUES -->
+    <header class="titre">
+        <span class="edition">Édition spéciale Coupe du Monde</span>
+        <h1>La Gazette Foot de l'UT</h1>
+        <p class="accroche">L'actualité du football au rythme de notre relation client.</p>
+    </header>
+
     <main class="corps">
 
-        <section class="rubrique r1">
+        <section class="rubrique">
             <div class="rubrique-tete">
-                <div class="numero">1</div>
-                <h2>Lancement de la Coupe du Monde</h2>
-                <span class="emoji">🏆</span>
+                <span class="numero">1</span>
+                <h2>Lancement de la Coupe du Monde<span class="filet"></span></h2>
             </div>
             <div class="zone"></div>
         </section>
 
-        <section class="rubrique r2">
+        <section class="rubrique">
             <div class="rubrique-tete">
-                <div class="numero">2</div>
-                <h2>Mercato</h2>
-                <span class="emoji">🔄</span>
+                <span class="numero">2</span>
+                <h2>Mercato<span class="filet"></span></h2>
             </div>
             <div class="zone"></div>
         </section>
 
-        <section class="rubrique r3">
+        <section class="rubrique">
             <div class="rubrique-tete">
-                <div class="numero">3</div>
-                <h2>Premier Match</h2>
-                <span class="emoji">🥅</span>
+                <span class="numero">3</span>
+                <h2>Premier Match<span class="filet"></span></h2>
             </div>
             <div class="zone"></div>
         </section>
 
-        <section class="rubrique r4">
+        <section class="rubrique">
             <div class="rubrique-tete">
-                <div class="numero">4</div>
-                <h2>La Promesse Client</h2>
-                <span class="emoji">🤝</span>
+                <span class="numero">4</span>
+                <h2>La Promesse Client<span class="filet"></span></h2>
             </div>
             <div class="zone"></div>
         </section>
 
-        <section class="rubrique r5 compact">
+        <section class="rubrique compact">
             <div class="rubrique-tete">
-                <div class="numero">5</div>
-                <h2>Petit truc en + !</h2>
-                <span class="emoji">✨</span>
+                <span class="numero">5</span>
+                <h2>Petit truc en +<span class="filet"></span></h2>
             </div>
             <div class="zone"></div>
         </section>
 
     </main>
 
-    <!-- PIED -->
     <footer class="footer">
-        Crédit Mutuel de Bretagne &nbsp;•&nbsp; <span>Ensemble, on va plus loin ⚽</span>
+        <span>Crédit Mutuel de Bretagne — Unité Technique</span>
+        <span class="signature">Ensemble, on va plus loin.</span>
     </footer>
 
 </div>
